@@ -19,7 +19,7 @@ case $yn in
   [yY] ) echo "Publishing  new version..."
     git tag $packageVersion
     git push origin $packageVersion
-    echo -e "\033[1;43mSUCCESS\033[0m"
+    echo -e "\033[1;42mSUCCESS\033[0m"
     echo "New package $packageVersion is ready on github and should be published on packagist"
     exit;;
   * ) echo -e "\033[1;43mAbort.\033[0m Suggestion : increase the version number in composer.json and then retry."
