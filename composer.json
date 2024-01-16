@@ -1,6 +1,6 @@
 {
   "name": "pebble-solutions/pebbleauthclient",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Pebble client tool for authenticate user and licence management written in PHP",
   "type": "library",
   "homepage": "https://pebble-solutions.github.io/pebble-auth-client-php/",

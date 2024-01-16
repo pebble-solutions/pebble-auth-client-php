@@ -6,8 +6,11 @@ packageVersion="$(grep -o '\"version\": \"[^\"]*' ./composer.json | grep -o '[^\
 lastTagVersion="$(git tag --sort=committerdate | grep -E '[0-9]' | tail -1)"
 
 if [ "$packageVersion" == "$lastTagVersion" ]; then
+	echo -e "\033[1;41mERROR :\033[0m"
 	echo "Package version has not been updated in composer.json file. Can't publish."
-	exit;;
+	echo "Package version : $packageVersion"
+	echo "Git tag version : $lastTagVersion"
+	exit;
 fi
 
 read -p "New version will be $packageVersion (actual is $lastTagVersion). Confirm ? (y/n) " yn
@@ -16,8 +19,10 @@ case $yn in
   [yY] ) echo "Publishing  new version..."
     git tag $packageVersion
     git push origin $packageVersion
+    echo -e "\033[1;43mSUCCESS\033[0m"
+    echo "New package $packageVersion is ready on github and should be published on packagist"
     exit;;
-  * ) echo "Abort. Suggestion : increase the version number in composer.json and then retry."
+  * ) echo -e "\033[1;43mAbort.\033[0m Suggestion : increase the version number in composer.json and then retry."
     exit;;
 esac
 
