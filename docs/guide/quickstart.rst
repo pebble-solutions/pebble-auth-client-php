@@ -56,15 +56,15 @@ This file will be requested and store **temporary** on your API Server. Your ser
 You can add more configuration by defining some more environment variables on your system. These configurations have
 values by default that works for most of the cases.
 
-+------------------------+---------------+--------------+
-| Environment variable   | Default       | Description  |
-+========================+===============+==============+
-| ``PBL_JWKS_REMOTE_URI`` | *Unset*      | **MANDATORY** URI of the remote jwks.json file. This file contains all active public keys to decode token.  |
-+------------------------+---------------+--------------+
-| ``PBL_CERTS_FOLDER``   | ./var/credentials/auth   | Local folder for temporary store authentication credentials. Storing locally the credentials improves server response.  |
-+------------------------+---------------+--------------+
-| ``PBL_JWKS_EXP_TIME``  | 86400         | Duration in seconds after which Keys Set (JWKS) is considered as expired. All local copy of the keys must be destroyed and the remote server will be requested to create the new copy.  |
-+------------------------+---------------+--------------+
++-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Environment variable    | Default                  | Description                                                                                                                                                                              |
++=========================+==========================+==========================================================================================================================================================================================+
+| ``PBL_JWKS_REMOTE_URI`` | *Unset*                  | **MANDATORY** URI of the remote jwks.json file. This file contains all active public keys to decode token.                                                                               |
++-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``PBL_CERTS_FOLDER``    | ./var/credentials/auth   | Local folder for temporary store authentication credentials. Storing locally the credentials improves server response.                                                                   |
++-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``PBL_JWKS_EXP_TIME``   | 86400                    | Duration in seconds after which Keys Set (JWKS) is considered as expired. All local copy of the keys must be destroyed and the remote server will be requested to create the new copy.   |
++-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Test keys pair
 ~~~~~~~~~~~~~~

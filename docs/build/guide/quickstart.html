@@ -163,62 +163,34 @@ Key Set (remote JWKS file).</p>
             <p><strong>If you start your server within a Docker container, you should add this line to your Dockefile :</strong></p>
             <pre><code class="language-Dockerfile">ENV PBL_JWKS_REMOTE_URI=https://SERVER_URI/path/jwks.json</code></pre>
             <p><strong>Other configurations</strong></p>
-            <p>You can add more configuration by defining some more environment variables on your
-system. These configurations have values by default that works for most of the cases.</p>
-            .. list-table:: 
-
-
-
-<ul>
-    <li>
-
-<ul>
-    <li class="dash">Environment variable</li>
-
-    <li class="dash">Default</li>
-
-    <li class="dash">Description</li>
-
-</ul>
-</li>
-
-    <li>
-
-<ul>
-    <li class="dash"><code>PBL_JWKS_REMOTE_URI</code></li>
-
-    <li class="dash"><em>Unset</em></li>
-
-    <li class="dash"><strong>MANDATORY</strong> URI of the remote jwks.json file. This file contains all active public keys to decode token.</li>
-
-</ul>
-</li>
-
-    <li>
-
-<ul>
-    <li class="dash"><code>PBL_CERTS_FOLDER</code></li>
-
-    <li class="dash">./var/credentials/auth</li>
-
-    <li class="dash">Local folder for temporary store authentication credentials. Storing locally the credentials improves server response.</li>
-
-</ul>
-</li>
-
-    <li>
-
-<ul>
-    <li class="dash"><code>PBL_JWKS_EXP_TIME</code></li>
-
-    <li class="dash">86400</li>
-
-    <li class="dash">Duration in seconds after which Keys Set (JWKS) is considered as expired. All local copy of the keys must be destroyed and the remote server will be requested to create the new copy.</li>
-
-</ul>
-</li>
-
-</ul>
+            <p>You can add more configuration by defining some more environment variables on your system. These configurations have
+values by default that works for most of the cases.</p>
+            <table>
+                <thead>
+            <tr>
+                            <th>Environment variable</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                    </tr>
+        </thead>
+    <tbody>
+    <tr>
+            <td><code>PBL_JWKS_REMOTE_URI</code></td>
+            <td><em>Unset</em></td>
+            <td><strong>MANDATORY</strong> URI of the remote jwks.json file. This file contains all active public keys to decode token.</td>
+    </tr>
+    <tr>
+            <td><code>PBL_CERTS_FOLDER</code></td>
+            <td>./var/credentials/auth</td>
+            <td>Local folder for temporary store authentication credentials. Storing locally the credentials improves server response.</td>
+    </tr>
+    <tr>
+            <td><code>PBL_JWKS_EXP_TIME</code></td>
+            <td>86400</td>
+            <td>Duration in seconds after which Keys Set (JWKS) is considered as expired. All local copy of the keys must be destroyed and the remote server will be requested to create the new copy.</td>
+    </tr>
+</tbody>
+</table>
 
     </div>
 
