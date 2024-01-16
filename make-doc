@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ ! -f phpDocumentor.phar ]; then
+    echo "Download phpDocumentor.phar..."
+    wget https://phpdoc.org/phpDocumentor.phar
+fi
+
+chmod +x phpDocumentor.phar
+
+./phpDocumentor.phar run
+
+read -p "Do you want to commit and publish documentation ? (y/n) " yn
+
+case $yn in
+  [Yy] ) echo "Publishing documentation..."
+    git add docs/
+    git commit -m "Generate documentation"
+    git push
+    exit;;
+  * ) echo "Abort. Documentation is generated locally. You can publish to github by adding docs/ directory, commit and then push"
+    exit;;
+esac
