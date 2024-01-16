@@ -9,6 +9,7 @@ use PebbleAuthClient\Services\Exceptions\AmbiguousTokenException;
 use PebbleAuthClient\Services\Exceptions\EmptyTokenException;
 use PebbleAuthClient\Services\Exceptions\InvalidClaimValueException;
 use PebbleAuthClient\Services\Exceptions\InvalidTypException;
+use PebbleAuthClient\Services\Exceptions\MissingClaimException;
 
 class auth {
 
@@ -50,7 +51,7 @@ class auth {
         $claims = ['audience' => 'aud', 'issuer' => 'iss'];
 
         foreach ($claims as $label => $claim) {
-            if (array_key_exists($claim, $options)) {
+            if (array_key_exists($label, $options)) {
                 $this->verifyClaimValue($decoded, $claim, $options[$label]);
             }
         }
@@ -129,13 +130,19 @@ class auth {
      * @return void
      *
      * @throws InvalidClaimValueException
+     * @throws MissingClaimException
      */
     private function verifyClaimValue(\stdClass $decodedToken, string $claim, mixed $value): void
     {
+        if (!property_exists($decodedToken, $claim)) {
+            throw new MissingClaimException($claim);
+        }
+
         if (is_array($decodedToken->$claim) && !in_array($value, $decodedToken->$claim)) {
             throw new InvalidClaimValueException($claim, $value);
         }
-        else if ($decodedToken->$claim !== $value) {
+
+        if (!is_array($decodedToken->$claim) && $decodedToken->$claim !== $value) {
             throw new InvalidClaimValueException($claim, $value);
         }
     }

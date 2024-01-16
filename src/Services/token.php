@@ -43,16 +43,16 @@ class token {
         return new PebbleTokenData([
             "aud" => $jwtPayload->aud,
             "iss" => $jwtPayload->iss,
-            "tid" => $jwtPayload->tid,
+            "tid" => property_exists($jwtPayload, "tid") ? $jwtPayload->tid : null,
             "sub" => $jwtPayload->sub,
-            "roles" => $jwtPayload->roles,
-            "lv" => $jwtPayload->lv,
-            "name" => $jwtPayload->name,
-            "iat" => $jwtPayload->iat,
+            "roles" => property_exists($jwtPayload, "roles") ? $jwtPayload->roles : null,
+            "lv" => property_exists($jwtPayload, "lv") ? $jwtPayload->lv : null,
+            "name" => property_exists($jwtPayload, "name") ? $jwtPayload->name : null,
+            "iat" => property_exists($jwtPayload, "iat") ? $jwtPayload->iat : null,
             "exp" => $jwtPayload->exp,
             "client_id" => $jwtPayload->client_id,
             "jti" => $jwtPayload->jti,
-            "scope" => $jwtPayload->scope,
+            "scope" => property_exists($jwtPayload, "scope") ? $jwtPayload->scope : null,
             "token" =>$token
         ]);
     }
