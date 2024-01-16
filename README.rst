@@ -69,7 +69,7 @@ values by default that works for most of the cases.
 Test keys pair
 ~~~~~~~~~~~~~~
 
-.. attention::
+.. warning::
     These key files are not secured and must be used FOR TESTING PURPOSE ONLY on a local development environment !
 
 **JWKS URI (for PBL_JWKS_REMOTE_URI environment variable)**
@@ -144,6 +144,39 @@ Authenticate with HTTP Authorization header
 
         /** ... */
     }
+
+.. note::
+
+    ``$headers`` parameter in ``authFromHttpHeaders()`` method is compliant with PSR-7 standard recommendation. Theses
+    values must be considered as valid :
+
+    Key to string relation :
+
+    .. code:: PHP
+
+        [
+            "authorization" => "my.valid.token"
+        ]
+
+    Key to array of strings relation :
+
+    .. code:: PHP
+
+        [
+            "authorization" => [
+                "my.valid.token"
+        ]
+
+    However, even if PSR-7 accept multiple values for the same header name, the following will cause an AmbiguousToken
+    error. It is not allowed to provide multiple token throw the authorization header.
+
+    .. code:: PHP
+
+        [
+            "authorization" => [
+                "my.first.token",
+                "my.second.token",
+        ]
 
 Check the audience
 ~~~~~~~~~~~~~~~~~~
