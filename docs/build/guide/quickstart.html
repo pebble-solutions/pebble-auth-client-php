@@ -282,11 +282,13 @@ Theses values must be considered as valid :</p><p>Key to string relation :</p><p
 ]</code></pre><p>Key to array of strings relation :</p><pre><code class="language-PHP">[
     &quot;authorization&quot; =&gt; [
         &quot;my.valid.token&quot;
+    ]
 ]</code></pre><p>However, even if PSR-7 accept multiple values for the same header name, the following will cause an AmbiguousToken
 error. It is not allowed to provide multiple token throw the authorization header.</p><pre><code class="language-PHP">[
     &quot;authorization&quot; =&gt; [
         &quot;my.first.token&quot;,
-        &quot;my.second.token&quot;,
+        &quot;my.second.token&quot;
+    ]
 ]</code></pre>
     </article>
 </div>

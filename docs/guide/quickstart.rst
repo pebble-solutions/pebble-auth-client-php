@@ -167,6 +167,7 @@ Authenticate with HTTP Authorization header
         [
             "authorization" => [
                 "my.valid.token"
+            ]
         ]
 
     However, even if PSR-7 accept multiple values for the same header name, the following will cause an AmbiguousToken
@@ -177,7 +178,8 @@ Authenticate with HTTP Authorization header
         [
             "authorization" => [
                 "my.first.token",
-                "my.second.token",
+                "my.second.token"
+            ]
         ]
 
 Check the audience
