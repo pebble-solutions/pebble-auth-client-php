@@ -3,8 +3,17 @@
   "version": "0.1.0",
   "description": "Pebble client tool for authenticate user and licence management written in PHP",
   "type": "library",
+  "homepage": "https://pebble-solutions.github.io/pebble-auth-client-php/",
+  "readme": "README.rst",
+  "license": "GPL-3.0-or-later",
+  "support": {
+    "issues": "https://github.com/pebble-solutions/pebble-auth-client-php/issues",
+    "source": "https://github.com/pebble-solutions/pebble-auth-client-php",
+    "docs": "https://pebble-solutions.github.io/pebble-auth-client-php/"
+  },
   "autoload": {
-    "psr-4": {"PebbleAuthClient\\": "src/"}
+    "psr-4": {"PebbleAuthClient\\": "src/"},
+    "exclude-from-classmap": ["tests/"]
   },
   "require": {
     "firebase/php-jwt": "^6.10",
