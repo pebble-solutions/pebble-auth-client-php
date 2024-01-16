@@ -147,8 +147,10 @@ Authenticate with HTTP Authorization header
 
 .. note::
 
-    ``$headers`` parameter in ``authFromHttpHeaders()`` method is compliant with PSR-7 standard recommendation. Theses
-    values must be considered as valid :
+    ``$headers`` parameter in ``authFromHttpHeaders()`` method is compliant with `PSR-7 standard recommendation <https://www.php-fig.org/psr/psr-7/>`_.
+    Theses values must be considered as valid :
+
+    ..
 
     Key to string relation :
 
